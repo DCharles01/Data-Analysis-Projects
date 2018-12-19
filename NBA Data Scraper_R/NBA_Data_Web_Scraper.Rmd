@@ -63,6 +63,14 @@ final_data <- final_data[, -(1)]
 
 # saved scraped data
 write.csv(final_data, file="/Users/pythagoras/R Files/Datasets/Scraped NBA Players.csv", row.names=FALSE)
+
+# grab position from Player column
+final_data <- separate(final_data, col=c("PLAYER"), into=c("Player", "POS"), sep=",")
+
+# remove white spaces from POS column
+final_data$POS <- trimws(final_data$POS)
+
+head(final_data)
 ```
 
 # Visualize players
